@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const proxy = 'https://cors-anywhere.herokuapp.com/';
+const server = 'https://api.darksky.net/forecast/';
+const key = '60fdaef213cea5b3365a03a6d95aec60';
+let latitude = '42.3601';
+let longitude = '-71.0589';
+
+export default class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+
+    }
+  }
+  
+  componentDidMount() {
+    fetch(`${proxy}${server}${key}/${longitude},${latitude}`)
+    .then(response => {
+      return response.json()
+    })
+    .then(data => {      
+      console.log(data);
+      this.setState({
+        latitude: data.latitude,
+        longitude: data.longitude,
+        timezone: data.timezone
+      })
+    })
+  }
+
+  render() {
+    console.log(this.state);
+    return (
+      <div></div>
+    )
+  }
 }
-
-export default App;
