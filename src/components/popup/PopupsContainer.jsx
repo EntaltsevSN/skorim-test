@@ -32,8 +32,6 @@ class PopupsContainer extends React.Component {
     const latitude = this.state.location.split(',')[0];
     const longitude = this.state.location.split(',')[1];
 
-    console.log(latitude, longitude);
-
     this.props.hidePopup();
 
     const id = (JSON.parse(localStorage.getItem('data')) === null)
@@ -45,9 +43,6 @@ class PopupsContainer extends React.Component {
         return response.json()
       })
       .then(data => {      
-        console.log(data);
-        console.log(this.props.elements.length);
-
         this.props.addLocation(
           id,
           data.latitude,
@@ -80,8 +75,6 @@ class PopupsContainer extends React.Component {
         return response.json()
       })
       .then(data => {      
-        console.log(data);
-
         this.props.addLocation(
           this.props.elements.length,
           data.latitude,

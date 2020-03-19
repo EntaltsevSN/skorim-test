@@ -22,7 +22,6 @@ class ElementsContainer extends React.Component {
   }
 
   render() {
-    console.log(this.props);  
     return (
       <Elements>
         {(this.props.elements.length !== 0) ?

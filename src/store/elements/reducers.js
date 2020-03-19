@@ -24,14 +24,10 @@ export const elementsReducer = (state = initialState, action) => {
       return elements;
     
     case 'REMOVE_LOCATION':
-      console.log(state.length);
-    
       (state.length <= 1) 
         ? state = []
         : state.splice(action.payload.id, 1)
 
-      console.log(state);
-      
       (state.length > 0)
         ? localStorage.setItem('data', JSON.stringify(state))
         : localStorage.removeItem('data')
