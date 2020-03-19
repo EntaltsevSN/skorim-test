@@ -104,7 +104,7 @@ class PopupsContainer extends React.Component {
             </PopupForm>
             : <PopupForm>
               <PopupButton onClick={this.handleRemoveLocation}>Yes</PopupButton>
-              <PopupButton>No</PopupButton>
+              <PopupButton onClick={this.handleClosePopup}>No</PopupButton>
             </PopupForm>
           }
         </Popup>
